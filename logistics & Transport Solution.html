@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Dispatch | Logistics & Transport Solutions</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary: #0f172a;    /* Dark Navy */
+            --secondary: #f97316;  /* Orange */
+            --accent: #3b82f6;     /* Blue */
+            --light: #f8fafc;
+            --text: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            background: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span { color: var(--secondary); }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: var(--secondary); }
+
+        .btn-quote {
+            background: var(--secondary);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1501700493717-9af9882fe910?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-main {
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary { background: var(--secondary); color: white; }
+        .btn-secondary { border: 2px solid white; color: white; }
+
+        /* --- SERVICES SECTION --- */
+        .section-padding { padding: 5rem 5%; }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--secondary);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- PRICING SECTION --- */
+        .pricing-bg { background: #f1f5f9; }
+
+        .price-tag {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        /* --- FORMS (CONVERSION FOCUS) --- */
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .form-info {
+            background: var(--primary);
+            color: white;
+            padding: 3rem;
+        }
+
+        .main-form { padding: 3rem; }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* --- MOBILE FRIENDLY --- */
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .form-container { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <header>
+        <div class="logo">ELITE<span>DISPATCH</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#register" class="btn-quote">Driver Registration</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Expert Dispatching. <span style="color:var(--secondary)">Higher Profits.</span></h1>
+            <p>We negotiate the best rates, handle your paperwork, and keep your trucks moving 24/7. Focus on the road, we'll handle the rest.</p>
+            <div class="cta-group">
+                <a href="#register" class="btn-main btn-primary">Start Driving Now</a>
+                <a href="#services" class="btn-main btn-secondary">View Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section-padding">
+        <div class="section-header">
+            <h2>Our Core Logistics Services</h2>
+            <p>Tailored solutions for owner-operators and small fleets.</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-search-dollar"></i>
+                <h3>Load Booking</h3>
+                <p>Access to premium load boards and direct brokers to find high-paying freight.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-map-marked-alt"></i> Route Planning</h3>
+                <p>Optimized routes to save fuel and time, ensuring maximum efficiency for every trip.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-file-contract"></i>
+                <h3>Documentation</h3>
+                <p>We handle broker setups, insurance certificates, and rate confirmations.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-headset"></i>
+                <h3>24/7 Support</h3>
+                <p>Emergency assistance and driver support available every mile of the way.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="section-padding pricing-bg">
+        <div class="section-header">
+            <h2>Simple, Transparent Pricing</h2>
+        </div>
+        <div class="grid">
+            <div class="card" style="text-align: center;">
+                <h3>Standard Plan</h3>
+                <div class="price-tag">5%</div>
+                <p>Per Load Gross</p>
+                <ul style="list-style: none; margin-top: 1rem;">
+                    <li>✓ Dedicated Dispatcher</li>
+                    <li>✓ Rate Negotiation</li>
+                    <li>✓ No Contract</li>
+                </ul>
+            </div>
+            <div class="card" style="text-align: center;">
+                <h3>Premium Plan</h3>
+                <div class="price-tag">7%</div>
+                <p>Per Load Gross</p>
+                <ul style="list-style: none; margin-top: 1rem;">
+                    <li>✓ Everything in Standard</li>
+                    <li>✓ Factoring Support</li>
+                    <li>✓ Weekly Reporting</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section id="register" class="section-padding">
+        <div class="form-container">
+            <div class="form-info">
+                <h2>Join Our Fleet</h2>
+                <p style="margin-top: 1rem;">Fill out the form and our dispatch team will contact you within 24 hours to get you on the road.</p>
+                <div style="margin-top: 2rem;">
+                    <p><i class="fas fa-phone"></i> +1 (800) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> dispatch@elitedispatch.com</p>
+                </div>
+            </div>
+            <div class="main-form">
+                <form>
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="text" placeholder="Phone Number" required>
+                    <select required>
+                        <option value="">Select Equipment Type</option>
+                        <option>Dry Van</option>
+                        <option>Reefer</option>
+                        <option>Flatbed</option>
+                        <option>Step Deck</option>
+                    </select>
+                    <textarea placeholder="Experience/Comments" rows="3"></textarea>
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--primary); color: white; padding: 2rem; text-align: center;">
+        <p>&copy; 2026 Elite Dispatching Services. Professional Logistics Excellence.</p>
+    </footer>
+
+</body>
+</html>
